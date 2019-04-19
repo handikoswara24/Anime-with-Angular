@@ -1,0 +1,32 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Anime</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <h1 class="text-center mx-auto my-3">
+      Search Anime
+    </h1>
+
+  </div>
+  <div class="row d-flex justify-content-center">
+    <input type="text" class="form-control col-8 mr-sm-2 col-sm-6" placeholder="Search Anime" [(ngModel)]="search"
+      (keydown.enter)="getAnimeList(search)">
+    <button class="btn btn-primary col-8 mt-2 mt-sm-0 col-sm-2" (click)="getAnimeList(search)">Search</button>
+  </div>
+
+  <hr>
+  <app-anime-list [animeList]="animeList">Loading</app-anime-list>
+</div>
+
+<router-outlet></router-outlet>

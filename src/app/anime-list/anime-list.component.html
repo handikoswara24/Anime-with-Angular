@@ -1,0 +1,92 @@
+<div class="row">
+  <div class="col-md-4 my-3" *ngFor="let anime of animeList?.results">
+    <div class="card">
+      <img class="card-img-top" [src]="anime.image_url" style="height: 270px;">
+      <div class="card-body">
+        <h5 class="card-title">{{anime.title}}</h5>
+        <p class="card-text">{{anime.type}}</p>
+        <a data-toggle="modal" data-target="#animeModal" class="see-detail text-primary" style="cursor: pointer"
+          (click)="getDetail(anime.mal_id)">See
+          Details</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="animeModal" tabindex="-1" role="dialog" aria-labelledby="animeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="animeModalLabel">{{detail?.title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-6">
+              <img [src]="detail?.image_url" style="height: 270px;" class="w-100">
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="col-6 font-weight-bold">
+                  Score
+                </div>
+                <div class="col-6 text-right">
+                  {{detail?.score}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6 font-weight-bold">
+                  Rank
+                </div>
+                <div class="col-6 text-right">
+                  {{detail?.rank}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6 font-weight-bold">
+                  Episodes
+                </div>
+                <div class="col-6 text-right">
+                  {{detail?.episodes}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6 font-weight-bold">
+                  Popularity
+                </div>
+                <div class="col-6 text-right">
+                  {{detail?.popularity}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6 font-weight-bold">
+                  Favorites
+                </div>
+                <div class="col-6 text-right">
+                  {{detail?.favorites}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="synopsis text-justify mt-2">
+              <h5>Synopsis</h5>
+              <p>
+                {{detail?.synopsis}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
