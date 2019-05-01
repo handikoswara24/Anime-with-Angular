@@ -18,7 +18,17 @@
 <div class="modal fade" id="animeModal" tabindex="-1" role="dialog" aria-labelledby="animeModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content" *ngIf="spinner">
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="d-flex justify-content-center">
+            <div class="spinner-border">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-content" *ngIf="!spinner">
       <div class="modal-header">
         <h5 class="modal-title" id="animeModalLabel">{{detail?.title}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">

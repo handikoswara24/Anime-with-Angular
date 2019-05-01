@@ -9,6 +9,7 @@ import { AppService } from '../app.service';
 export class AnimeListComponent implements OnInit {
   @Input() animeList: any;
 
+  spinner: boolean = false;
   detail: any;
 
   constructor(private _appService: AppService) { }
@@ -17,9 +18,11 @@ export class AnimeListComponent implements OnInit {
   }
 
   getDetail(animeID: string) {
+    this.spinner = true;
     this._appService.getAnimeDetail(animeID).subscribe(
       data => {
         this.detail = data;
+        this.spinner = false;
       }
     );
   }

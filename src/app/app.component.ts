@@ -10,6 +10,7 @@ export class AppComponent {
 
   search: string;
   animeList: any;
+  spinner: boolean = false;
 
   constructor(private _appService: AppService) {
 
@@ -19,9 +20,11 @@ export class AppComponent {
   }
 
   getAnimeList(title: string) {
+    this.spinner = true;
     this._appService.getAnime(title).subscribe(
       data => {
         this.animeList = data;
+        this.spinner = false;
       }
     );
     this.search = '';

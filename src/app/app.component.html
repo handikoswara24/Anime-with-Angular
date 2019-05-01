@@ -26,7 +26,12 @@
   </div>
 
   <hr>
-  <app-anime-list [animeList]="animeList">Loading</app-anime-list>
+  <app-anime-list [animeList]="animeList" *ngIf="!spinner">Loading</app-anime-list>
+  <div class="d-flex justify-content-center" *ngIf="spinner">
+    <div class="spinner-border">
+    </div>
+  </div>
+
 </div>
 
 <router-outlet></router-outlet>
